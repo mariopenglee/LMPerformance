@@ -1,3 +1,7 @@
+import logo from '../favicon.png'
+import React from 'react'
+import { Component } from 'react'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import { Nav, Navbar } from 'react-bootstrap'
 
@@ -11,7 +15,7 @@ class Navigation extends Component {
         Language Model Performance
         </Navbar.Brand>
 
-        <Navbar.Toggle />
+        <Navbar.Toggle/>
 
         <Navbar.Collapse>
           <Nav>
