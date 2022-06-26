@@ -18,7 +18,9 @@ export default function Home() {
     const data = await response.json();
     setResult(data.result);
     setAnimalInput("");
+    console.log(result)
   }
+
 
   return (
     <div>
@@ -40,7 +42,6 @@ export default function Home() {
           />
           <input type="submit" value="Generate names" />
         </form>
-        <div className={styles.result}>{result}</div>
       </main>
     </div>
   );
