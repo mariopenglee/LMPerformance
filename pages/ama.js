@@ -8,7 +8,7 @@ export default function Ama() {
 
   async function onSubmit(event) {
     event.preventDefault();
-    const response = await fetch("/api/generate", {
+    const response = await fetch("/api/amagen", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export default function Ama() {
         <div className={styles.sidenav}>
           <a href="index">About</a>
           <a href="#">AMA</a>
-          <a href="#">NTP</a>
+          <a href="ntp">NTP</a>
         </div>
         <img src="/dog.png" className={styles.icon} />
         <h3>Ask Me Anything</h3>
@@ -40,11 +40,11 @@ export default function Ama() {
           <input
             type="text"
             name="prompt"
-            placeholder="Enter an prompt"
+            placeholder="Enter a question"
             value={promptInput}
             onChange={(e) => setpromptInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Get Response" />
         </form>
         <div className={styles.result}>{result ? result[0] : ""}</div>
         <div className={styles.result}>{result ? result[1] : ""}</div>
