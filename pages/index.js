@@ -15,10 +15,11 @@ export default function Home() {
       },
       body: JSON.stringify({ animal: animalInput }),
     });
+    await console.log(result)
     const data = await response.json();
     setResult(data.result);
     setAnimalInput("");
-    console.log(result)
+
   }
 
 
@@ -42,6 +43,11 @@ export default function Home() {
           />
           <input type="submit" value="Generate names" />
         </form>
+        <div className={styles.result}>{result[0]}</div>
+        <div className={styles.result}>{result[1]}</div>
+        <div className={styles.result}>{result[2]}</div>
+        <div className={styles.result}>{result[3]}</div>
+        <div className={styles.result}>{result[4]}</div>
       </main>
     </div>
   );

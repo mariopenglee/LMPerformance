@@ -11,38 +11,45 @@ export default async function(req, res) {
         model: "text-davinci-002",
         prompt: generatePrompt(req.body.animal),
         temperature: 0.0,
+        max_tokens: 3,
     });
     const completion_curie = await openai.createCompletion({
         model: "text-curie-001",
         prompt: generatePrompt(req.body.animal),
         temperature: 0.0,
+        max_tokens: 3,
     });
     const completion_babbage = await openai.createCompletion({
         model: "text-babbage-001",
         prompt: generatePrompt(req.body.animal),
         temperature: 0.0,
+        max_tokens: 3,
     });
     const completion_ada = await openai.createCompletion({
         model: "text-ada-001",
         prompt: generatePrompt(req.body.animal),
         temperature: 0.0,
+        max_tokens: 3,
     });
-    let completions = {"davinci": completion_davinci.data.choices[0].text ,
-                        "curie": completion_curie.data.choices[0].text,
-                        "babbage": completion_babbage.data.choices[0].text,
-                        "ada": completion_ada.data.choices[0].text};
+    let completions = ["Prompt: " + req.body.animal + " \n",
+                        "Davinci: " + completion_davinci.data.choices[0].text + " \n",
+                        "Curie: " + completion_curie.data.choices[0].text + " \n",
+                        "Babbage: " + completion_babbage.data.choices[0].text + " \n",
+                        "Ada: " + completion_ada.data.choices[0].text + " \n"];
     res.status(200).json({ result: completions });
 }
 
 function generatePrompt(animal) {
     const capitalizedAnimal =
         animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-    return `Suggest three names for an animal that is a superhero.
+    return `Predict the next token.
 
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
-Names:`;
+Prompt: I was hanging out in a bar with some friends, and I ordered a
+Prediction: beer
+Prompt: I love California, the weather is
+Prediction: great
+Prompt: I am a language modeler, I am trying to predict the next
+Prediction: token
+Prompt: ${capitalizedAnimal}
+Prediction:`;
 }
