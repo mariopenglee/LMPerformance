@@ -35,15 +35,15 @@ export default function Ntp() {
     <div>
       <Head>
         <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <link rel="icon" href="/logo.png" />
       </Head>
       <main className={styles.main}>
         <div className={styles.sidenav}>
-          <a href="index">About</a>
+          <a href="/">About</a>
           <a href="ama">AMA</a>
           <a href="#">NTP</a>
         </div>
-        <img src="/dog.png" className={styles.icon} />
+        <img src="/logo.png" className={styles.icon} />
         <h3>Ask Me Anything</h3>
         <form onSubmit={makePrompt}>
           <input type="submit" value="Generate prompt" />
@@ -59,12 +59,34 @@ export default function Ntp() {
           />
           <input type="submit" value="Compare performance" />
         </form>
-        <div className={styles.result}>{completions ? completions[0] : ""}</div>
-        <div className={styles.result}>{completions ? completions[1] : ""}</div>
-        <div className={styles.result}>{completions ? completions[2] : ""}</div>
-        <div className={styles.result}>{completions ? completions[3] : ""}</div>
-        <div className={styles.result}>{completions ? completions[4] : ""}</div>
-        <div className={styles.result}>{completions ? completions[5] : ""}</div>
+        <br></br>
+                <table className={styles.table}>
+            <tr className={styles.tr}>
+              <td className={styles.td}>Prompt</td>
+              <td className={styles.td}>{completions ? completions[0] : ""}</td>
+            </tr>
+          <tr className={styles.tr}>
+              <td className={styles.td}>You</td>
+            <td className={styles.td}>{completions ? completions[1] : ""}</td>
+            </tr>
+          <tr className={styles.tr}>
+              <td className={styles.td}>Davinci</td>
+            <td className={styles.td}>{completions ? completions[2] : ""}</td>
+            </tr>
+          <tr className={styles.tr}>
+              <td className={styles.td}>Curie</td>
+            <td className={styles.td}>{completions ? completions[3] : ""}</td>
+            </tr>
+          <tr className={styles.tr}>
+              <td className={styles.td}>Babbage</td>
+             <td className={styles.td}>{completions ? completions[4] : ""}</td>
+            </tr>
+                  <tr className={styles.tr}>
+              <td className={styles.td}>Ada</td>
+             <td className={styles.td}>{completions ? completions[5] : ""}</td>
+            </tr>
+        </table>
+
       </main>
     </div>
   );

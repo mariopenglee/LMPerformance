@@ -31,11 +31,11 @@ export default async function(req, res) {
         temperature: 1.0,
         max_tokens: 100
     });
-    let completions = ["Prompt: " + req.body.prompt + " \n",
-                        "Davinci: " + completion_davinci.data.choices[0].text + " \n",
-                        "Curie: " + completion_curie.data.choices[0].text + " \n",
-                        "Babbage: " + completion_babbage.data.choices[0].text + " \n",
-                        "Ada: " + completion_ada.data.choices[0].text + " \n"];
+    let completions = [req.body.prompt + " \n",
+                        completion_davinci.data.choices[0].text + " \n",
+                        completion_curie.data.choices[0].text + " \n",
+                        completion_babbage.data.choices[0].text + " \n",
+                        completion_ada.data.choices[0].text + " \n"];
     res.status(200).json({ result: completions });
 }
 

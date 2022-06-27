@@ -26,15 +26,16 @@ export default function Ama() {
     <div>
       <Head>
         <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <link rel="icon" href="/logo.png" />
+
       </Head>
       <main className={styles.main}>
         <div className={styles.sidenav}>
-          <a href="index">About</a>
+          <a href="/">About</a>
           <a href="#">AMA</a>
           <a href="ntp">NTP</a>
         </div>
-        <img src="/dog.png" className={styles.icon} />
+        <img src="/logo.png" className={styles.icon} />
         <h3>Ask Me Anything</h3>
         <form onSubmit={onSubmit}>
           <input
@@ -46,11 +47,30 @@ export default function Ama() {
           />
           <input type="submit" value="Get Response" />
         </form>
-        <div className={styles.result}>{result ? result[0] : ""}</div>
-        <div className={styles.result}>{result ? result[1] : ""}</div>
-        <div className={styles.result}>{result ? result[2] : ""}</div>
-        <div className={styles.result}>{result ? result[3] : ""}</div>
-        <div className={styles.result}>{result ? result[4] : ""}</div>
+        <br></br>
+        <table className={styles.table}>
+            <tr className={styles.tr}>
+              <td className={styles.td}>Prompt</td>
+              <td className={styles.td}>{result ? result[0] : ""}</td>
+            </tr>
+          <tr className={styles.tr}>
+              <td className={styles.td}>Davinci</td>
+            <td className={styles.td}>{result ? result[1] : ""}</td>
+            </tr>
+          <tr className={styles.tr}>
+              <td className={styles.td}>Curie</td>
+            <td className={styles.td}>{result ? result[2] : ""}</td>
+            </tr>
+          <tr className={styles.tr}>
+              <td className={styles.td}>Babbage</td>
+            <td className={styles.td}>{result ? result[3] : ""}</td>
+            </tr>
+          <tr className={styles.tr}>
+              <td className={styles.td}>Ada</td>
+             <td className={styles.td}>{result ? result[4] : ""}</td>
+            </tr>
+        </table>
+
       </main>
     </div>
   );
