@@ -3,50 +3,21 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [promptInput, setpromptInput] = useState("");
-  const [result, setResult] = useState();
+    return (
 
-  async function onSubmit(event) {
-    event.preventDefault();
-    const response = await fetch("/api/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ prompt: promptInput }),
-    });
-    await console.log(result)
-    const data = await response.json();
-    setResult(data.result);
-    setpromptInput("");
-  }
+         <main className={styles.main}>
+        <div className={styles.sidenav}>
+          <a href="#">About</a>
+          <a href="ama">AMA</a>
+          <a href="#">NTP</a>
+        </div>
+        <p>
+            Must try examples to see ADA's superior intelligence:
+            If someone is in my way, I will
+            My favorite programming language is
+            I was programmed in
+        </p>
 
-
-  return (
-    <div>
-      <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
-      </Head>
-      <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="prompt"
-            placeholder="Enter an prompt"
-            value={promptInput}
-            onChange={(e) => setpromptInput(e.target.value)}
-          />
-          <input type="submit" value="Generate names" />
-        </form>
-        <div className={styles.result}>{result[0]}</div>
-        <div className={styles.result}>{result[1]}</div>
-        <div className={styles.result}>{result[2]}</div>
-        <div className={styles.result}>{result[3]}</div>
-        <div className={styles.result}>{result[4]}</div>
-      </main>
-    </div>
-  );
+             </main>
+    )
 }
