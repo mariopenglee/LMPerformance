@@ -44,11 +44,11 @@ export default function Ntp() {
           <a href="#">NTP</a>
         </div>
         <img src="/logo.png" className={styles.icon} />
-        <h3>Ask Me Anything</h3>
+        <h3>Next Token Prediction</h3>
         <form onSubmit={makePrompt}>
           <input type="submit" value="Generate prompt" />
         </form>
-        <div className={styles.result}>{result ? result : ""}</div>
+        <div className={styles.result}>{result ? result.split(" ").slice(0, -1).join(" ") : ""}</div>
         <form onSubmit={onSubmit}>
           <input
             type="text"
@@ -65,21 +65,25 @@ export default function Ntp() {
               <td className={styles.td}>Prompt</td>
               <td className={styles.td}>{completions ? completions[0] : ""}</td>
             </tr>
-          <tr className={styles.tr}>
-              <td className={styles.td}>You</td>
-            <td className={styles.td}>{completions ? completions[1] : ""}</td>
+            <tr className={styles.tr}>
+              <td className={styles.td}>Correct Token</td>
+              <td className={styles.td}>{completions ? completions[1] : ""}</td>
             </tr>
           <tr className={styles.tr}>
-              <td className={styles.td}>Davinci</td>
+              <td className={styles.td}>You</td>
             <td className={styles.td}>{completions ? completions[2] : ""}</td>
             </tr>
           <tr className={styles.tr}>
-              <td className={styles.td}>Curie</td>
+              <td className={styles.td}>Davinci</td>
             <td className={styles.td}>{completions ? completions[3] : ""}</td>
             </tr>
           <tr className={styles.tr}>
+              <td className={styles.td}>Curie</td>
+            <td className={styles.td}>{completions ? completions[4] : ""}</td>
+            </tr>
+          <tr className={styles.tr}>
               <td className={styles.td}>Babbage</td>
-             <td className={styles.td}>{completions ? completions[4] : ""}</td>
+             <td className={styles.td}>{completions ? completions[5] : ""}</td>
             </tr>
                   <tr className={styles.tr}>
               <td className={styles.td}>Ada</td>
