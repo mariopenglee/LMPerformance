@@ -15,7 +15,7 @@ export default function Home() {
           Language Model Performance Tool App
           </h1>
         <p>
-            Web app made in react. 
+            Add app description.
         </p>
 
              </main>
