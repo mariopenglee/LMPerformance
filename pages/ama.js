@@ -32,7 +32,7 @@ export default function Ama() {
       <main className={styles.main}>
         <div className={styles.sidenav}>
           <a href="/">About</a>
-          <a href="#">AMA</a>
+          <a href="ama">AMA</a>
           <a href="ntp">NTP</a>
         </div>
         <img src="/logo.png" className={styles.icon} />

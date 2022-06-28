@@ -41,7 +41,7 @@ export default function Ntp() {
         <div className={styles.sidenav}>
           <a href="/">About</a>
           <a href="ama">AMA</a>
-          <a href="#">NTP</a>
+          <a href="ntp">NTP</a>
         </div>
         <img src="/logo.png" className={styles.icon} />
         <h3>Next Token Prediction</h3>

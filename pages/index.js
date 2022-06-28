@@ -7,15 +7,15 @@ export default function Home() {
 
          <main className={styles.main}>
         <div className={styles.sidenav}>
-          <a href="#">About</a>
+          <a href="/">About</a>
           <a href="ama">AMA</a>
-          <a href="#">NTP</a>
+          <a href="ntp">NTP</a>
         </div>
+          <h1>
+          Language Model Performance Tool App
+          </h1>
         <p>
-            Must try examples to see ADA's superior intelligence:
-            If someone is in my way, I will
-            My favorite programming language is
-            I was programmed in
+            Web app made in react. 
         </p>
 
              </main>
