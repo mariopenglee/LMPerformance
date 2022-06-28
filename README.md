@@ -1,6 +1,6 @@
 # Language Model Performance App
 a couple of tools to test OPENAI language model performance on a variety of tasks, compared between each other and humans.
-made with react and openai API.
+a next.js app with openai API integrations.
 ## Available Tools
 ### AMA
 Ask Me Anything.
