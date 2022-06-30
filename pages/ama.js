@@ -5,10 +5,18 @@ import styles from "./index.module.css";
 export default function Ama() {
   const [promptInput, setpromptInput] = useState("");
   const [apiInput, setapiInput] = useState("");
+  const [loadingText, setloadingText] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
     event.preventDefault();
+    setResult(["loading..." + " \n",
+                        "loading..." + " \n",
+                        "loading..." + " \n",
+                        "loading..." + " \n",
+                        "loading..." + " \n"]);
+    setloadingText("generating... do not call for another response.");
+
     const response = await fetch("/api/amagen", {
       method: "POST",
       headers: {
@@ -20,6 +28,7 @@ export default function Ama() {
     const data = await response.json();
     setResult(data.result);
     setpromptInput("");
+    setloadingText("");
   }
 
 
@@ -47,6 +56,7 @@ export default function Ama() {
           />
         </form>
         <h3>Ask Me Anything</h3>
+
         <form onSubmit={onSubmit}>
           <input
             type="text"
@@ -55,8 +65,9 @@ export default function Ama() {
             value={promptInput}
             onChange={(e) => setpromptInput(e.target.value)}
           />
-          <input type="submit" value="Get Response" />
+          <input type="submit" value="Get Response"/>
         </form>
+        <p> {loadingText} </p>
         <br></br>
         <table className={styles.table}>
             <tr className={styles.tr}>
