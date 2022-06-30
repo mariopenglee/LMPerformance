@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 
 export default function Ama() {
   const [promptInput, setpromptInput] = useState("");
+  const [apiInput, setapiInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -13,7 +14,7 @@ export default function Ama() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ prompt: promptInput }),
+      body: JSON.stringify({ prompt: promptInput + "|" + apiInput}),
     });
     await console.log(result)
     const data = await response.json();
@@ -36,6 +37,15 @@ export default function Ama() {
           <a href="ntp">NTP</a>
         </div>
         <img src="/logo.png" className={styles.icon} />
+        <form>
+          <input
+            type="text"
+            name="api"
+            placeholder="insert your open AI API key"
+            value={apiInput}
+            onChange={(e) => setapiInput(e.target.value)}
+          />
+        </form>
         <h3>Ask Me Anything</h3>
         <form onSubmit={onSubmit}>
           <input

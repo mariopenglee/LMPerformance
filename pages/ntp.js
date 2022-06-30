@@ -4,13 +4,19 @@ import styles from "./index.module.css";
 
 export default function Ntp() {
   const [promptInput, setpromptInput] = useState("");
+  const [apiInput, setapiInput] = useState("");
   const [result, setResult] = useState();
   const [completions, setCompletions] = useState();
 
   async function makePrompt(event) {
     event.preventDefault();
-    const response = await fetch("/api/promptgenerator");
-    await console.log(result)
+    const response = await fetch("/api/promptgenerator", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ api: apiInput}),
+    });
     const data = await response.json();
     setResult(data.result);
     setpromptInput("");
@@ -23,13 +29,12 @@ export default function Ntp() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ prompt: result + "|" + promptInput }),
+      body: JSON.stringify({ prompt: result + "|" + promptInput + "|" + apiInput}),
     });
     const data = await response.json();
     setCompletions(data.completions);
     setpromptInput("");
   }
-
 
   return (
     <div>
@@ -44,6 +49,15 @@ export default function Ntp() {
           <a href="ntp">NTP</a>
         </div>
         <img src="/logo.png" className={styles.icon} />
+        <form>
+          <input
+            type="text"
+            name="api"
+            placeholder="insert your open AI API key"
+            value={apiInput}
+            onChange={(e) => setapiInput(e.target.value)}
+          />
+        </form>
         <h3>Next Token Prediction</h3>
         <form onSubmit={makePrompt}>
           <input type="submit" value="Generate prompt" />

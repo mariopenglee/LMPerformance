@@ -1,13 +1,17 @@
 import { Configuration, OpenAIApi } from "openai";
 
-const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+
 
 const priming_prompt = `Write a random sentence`
 
 export default async function(req, res) {
+
+const api = req.body.api;
+
+  const configuration = new Configuration({
+      apiKey: api,
+  });
+  const openai = new OpenAIApi(configuration);
 
     const prompt = await openai.createCompletion({
         model: "text-davinci-002",
