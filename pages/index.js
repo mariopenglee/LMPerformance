@@ -9,6 +9,7 @@ export default function Home() {
 
 
     return (
+      
          <main className={styles.main}>
         <div className={styles.sidenav}>
           <a href="/">About</a>
@@ -22,7 +23,8 @@ export default function Home() {
             Add app description.
         </p>
 
-      
+
+
              </main>
     )
 }

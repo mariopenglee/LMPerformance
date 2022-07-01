@@ -48,9 +48,9 @@ export default async function(req, res) {
 function generatePrompt(prompt) {
     return `Answer the following question.
 
-Q: What is your favorite drink
+Q: What is your favorite drink?
 A: beer
-Q: Who is the president of Argentina
+Q: Who is the president of Argentina?
 A: Alberto Fernandez
 Q: I am a language model, what is my name?
 A: Most likely GPT-3
